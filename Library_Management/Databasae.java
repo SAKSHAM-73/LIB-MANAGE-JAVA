@@ -19,16 +19,14 @@ static LinkedList<ArrayList<String>> issuedbooks = new LinkedList<>();
         books.add(book);
 
     }
-    static void issueBook(String bookname)//, String issName, String issDate) //throws BookNotFound
+    static void issueBook(String bookname)
     {
         for(ArrayList<String> a:books){
             if(a.contains(bookname)){
-//                a.add(issName);
-//                a.add(issDate);
+
                 issuedbooks.add(a);
                 books.remove(a);}
-//            else
-//                throw new BookNotFound();
+
         }
 
     }
@@ -36,8 +34,7 @@ static LinkedList<ArrayList<String>> issuedbooks = new LinkedList<>();
     {
         for(ArrayList<String> a:issuedbooks){
             if(a.contains(bookname)){
-//                a.remove(2);
-//                a.remove(3);
+
                 books.add(a);
                 issuedbooks.remove(a);}
         }
@@ -46,14 +43,14 @@ static LinkedList<ArrayList<String>> issuedbooks = new LinkedList<>();
     static void displayAvailable()
     {
         for(ArrayList<String> a:books){
-            System.out.println(a.get(0)+"  "+a.get(1));//Why 1
+            System.out.println(a.get(0)+"  "+a.get(1));
         }
     }
     static void displayIssuedBooks()
     {
         for(ArrayList<String> a:issuedbooks){
-            System.out.println(a.get(0));//why 1
-//            System.out.println("Issued by :"+a.get(2)+" On:"+a.get(3));
+            System.out.println(a.get(0));
+
         }
     }
 public static void main(String[] args) {

@@ -313,31 +313,4 @@ Add to the top of your README.md for a professional look:
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 ```
 
----
-
-## WHAT CHANGED FROM ORACLE → MYSQL
-
-| Aspect | Before (Oracle 21c) | After (MySQL Docker) |
-|---|---|---|
-| JDBC URL | `jdbc:oracle:thin:@localhost:1521:XE` | `jdbc:mysql://127.0.0.1:3306/lms_db` |
-| Driver class | `oracle.jdbc.driver.OracleDriver` | `com.mysql.cj.jdbc.Driver` |
-| Driver JAR | `ojdbc11.jar` | `mysql-connector-j-8.3.0.jar` |
-| Auto-increment | `GENERATED ALWAYS AS IDENTITY` | `AUTO_INCREMENT` |
-| ENUM type | `CHECK (role IN ('ADMIN','USER'))` | `ENUM('ADMIN','USER')` |
-| Date default | `DEFAULT SYSDATE` | `DEFAULT CURRENT_TIMESTAMP` |
-| Schema init | SQL*Plus | `docker exec mysql-lab mysql ...` |
-
-All Java business logic, hashing, exceptions, and UI are **unchanged**.
-
----
-
-## AGILE METHODOLOGY (Interview Answer)
-
-**"I used Agile with 4 sprints of roughly 1 week each:"**
-
-- **Sprint 1:** DB schema + model classes (Book, User, BorrowRecord)
-- **Sprint 2:** DAO layer (BookDAO, UserDAO, BorrowDAO) + JDBC connection
-- **Sprint 3:** Business logic (LibraryService) + all custom exceptions + hashing
-- **Sprint 4:** UI layer (ConsoleUI) + end-to-end testing + README
-
 Each sprint produced working, testable code. I adapted mid-project when I switched from Oracle to MySQL (because Oracle wasn't in my current dev setup), which is exactly how Agile handles change — respond to environment rather than following a fixed plan.
